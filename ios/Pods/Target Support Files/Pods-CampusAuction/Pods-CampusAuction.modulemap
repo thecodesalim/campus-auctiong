@@ -1,0 +1,6 @@
+module Pods_CampusAuction {
+  umbrella header "Pods-CampusAuction-umbrella.h"
+
+  export *
+  module * { export * }
+}
