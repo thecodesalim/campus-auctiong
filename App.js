@@ -18,6 +18,7 @@ import {
   StatusBar,
   Pressable,
   Dimensions,
+  Image,
   Button,
   TouchableOpacity,
 } from 'react-native';
@@ -61,10 +62,10 @@ const CustomButton = (props) => {
       style={{
         backgroundColor: '#4B0082',
         width: windowWidth - 40,
-        height: 35,
-        borderRadius: 5,
+        height: 48,
+        borderRadius: 8,
       }}>
-      <Text style={{textAlign: 'center', color: 'white', paddingTop: 8}}>
+      <Text style={{textAlign: 'center', color: 'white', margin: 15}}>
         {props.title}
       </Text>
     </Pressable>
@@ -120,11 +121,11 @@ const CategoryView = () => {
 const CardView = () => {
   return (
     <>
-      <View style={{flex: 1, marginBottom: 10}}>
+      <View style={{flex: 1, marginBottom: 10, padding: 10}}>
         <View
           style={{
             flex: 1,
-            width: windowWidth - 10,
+            width: windowWidth - 20,
             height: 670,
             borderColor: '#B1B1B1',
             borderWidth: 1,
@@ -132,14 +133,15 @@ const CardView = () => {
           }}>
           <View>
             <View style={{flexDirection: 'row'}}>
-              <View
+              <Image
                 style={{
                   margin: 10,
                   width: 50,
                   height: 50,
-                  backgroundColor: 'orangered',
+                  // backgroundColor: 'orangered',
                   borderRadius: 25,
                 }}
+                source={require('./src/assets/fela-kudi.png')}
               />
               <View style={{marginTop: 10}}>
                 <Text>Fela Kuti</Text>
@@ -159,16 +161,44 @@ const CardView = () => {
               <Text style={{fontWeight: 'bold'}}>N35,000</Text>
             </View>
           </View>
-          <View
+          <Image
             style={{
               marginTop: 5,
-              width: windowWidth - 10,
+              width: windowWidth - 22,
               height: 290,
               borderRadius: 8,
-              backgroundColor: '#B1B1B1',
+              // backgroundColor: '#B1B1B1',
             }}
+            source={require('./src/assets/chair.jpg')}
           />
-          <View style={{margin: 20, marginTop: 50}}>
+          <View
+            style={{
+              flexDirection: 'row',
+              justifyContent: 'space-between',
+              marginTop: 10,
+            }}>
+            <View style={{flexDirection: 'row'}}>
+              <Image
+                style={{margin: 10}}
+                source={require('./src/assets/messag1.png')}
+              />
+              <Image
+                style={{margin: 10}}
+                source={require('./src/assets/call.png')}
+              />
+            </View>
+            <View style={{flexDirection: 'row'}}>
+              <Image
+                style={{margin: 10}}
+                source={require('./src/assets/info1.png')}
+              />
+              <Image
+                style={{margin: 10}}
+                source={require('./src/assets/save1.png')}
+              />
+            </View>
+          </View>
+          <View style={{margin: 20, marginTop: 20}}>
             <Text>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
@@ -231,36 +261,7 @@ const RegisterScreen = (props) => {
               placeholder="Phone Number"
               keyboardType="phone-pad"
             />
-            <View
-              style={{
-                borderColor: '#B1B1B1',
-                borderWidth: 1,
-                borderRadius: 8,
-                width: props.width,
-                height: 40,
-              }}>
-              <Picker
-                selectedValue={selectedValue}
-                style={{
-                  height: 50,
-                  width: windowWidth - 40,
-                  borderWidth: 1,
-                  borderRadius: 8,
-                  borderColor: '#B1B1B1',
-                }}
-                onValueChange={(itemValue, itemIndex) =>
-                  setSelectedValue(itemValue)
-                }>
-                <Picker.Item
-                  label="University of Lagos"
-                  value="University of Lagos"
-                />
-                <Picker.Item
-                  label="Federal University of Technology"
-                  value="js"
-                />
-              </Picker>
-            </View>
+
             <Text style={{fontSize: 13, color: 'grey'}}>
               By creating an account with us, you agree with our terms and
               conditions.
@@ -308,11 +309,11 @@ const OTPScreen = (props) => {
             flexDirection: 'row',
             alignSelf: 'center',
           }}>
-          <Input width={40} placeholder="" />
-          <Input width={40} placeholder="" />
-          <Input width={40} placeholder="" />
-          <Input width={40} placeholder="" />
-          <Input width={40} placeholder="" />
+          <Input width={66} placeholder="" />
+          <Input width={66} placeholder="" />
+          <Input width={66} placeholder="" />
+          <Input width={66} placeholder="" />
+          <Input width={66} placeholder="" />
         </View>
         <View style={{alignSelf: 'center', paddingTop: 10}}>
           <CustomButton
@@ -385,7 +386,11 @@ const CreateProfile = (props) => {
 const Home = () => {
   return (
     <SafeAreaView style={{flex: 1, padding: 5, backgroundColor: '#ffffff'}}>
-      <View style={{alignItems: 'center', padding: 0}}>
+      <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+        <Image
+          style={{margin: 10}}
+          source={require('./src/assets/notifications.png')}
+        />
         <Text
           style={{
             fontSize: 20,
@@ -395,6 +400,15 @@ const Home = () => {
           }}>
           Campus AuctionNG
         </Text>
+
+        <Image
+          style={{margin: 10}}
+          source={require('./src/assets/search.png')}
+        />
+        <Image
+          style={{margin: 10}}
+          source={require('./src/assets/userhome.png')}
+        />
       </View>
       <CategoryView />
       <ScrollView showsVerticalScrollIndicator={false}>
