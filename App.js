@@ -23,6 +23,7 @@ import {
 } from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
+import {Picker} from '@react-native-picker/picker';
 
 const Stack = createStackNavigator();
 const windowWidth = Dimensions.get('window').width;
@@ -48,6 +49,7 @@ const Input = (props) => {
         height: 40,
       }}
       placeholder={props.placeholder}
+      keyboardType={props.keyboardType}
     />
   );
 };
@@ -58,7 +60,7 @@ const CustomButton = (props) => {
       onPress={props.onPress}
       style={{
         backgroundColor: '#4B0082',
-        width: 230,
+        width: windowWidth - 40,
         height: 35,
         borderRadius: 5,
       }}>
@@ -105,7 +107,7 @@ const ScrollItem = (props) => {
 const CategoryView = () => {
   return (
     <View>
-      <ScrollView horizontal={true}>
+      <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
         <ScrollItem itemName="House" />
         <ScrollItem itemName="Phone" />
         <ScrollItem itemName="Fashion Beauty" />
@@ -122,7 +124,7 @@ const CardView = () => {
         <View
           style={{
             flex: 1,
-            width: windowWidth - 60,
+            width: windowWidth - 10,
             height: 670,
             borderColor: '#B1B1B1',
             borderWidth: 1,
@@ -159,8 +161,8 @@ const CardView = () => {
           </View>
           <View
             style={{
-              margin: 5,
-              width: windowWidth - 72,
+              marginTop: 5,
+              width: windowWidth - 10,
               height: 290,
               borderRadius: 8,
               backgroundColor: '#B1B1B1',
@@ -209,9 +211,12 @@ const SplashScreen = (props) => {
 };
 
 const RegisterScreen = (props) => {
+  const [selectedValue, setSelectedValue] = React.useState(
+    'Universityof Lagos',
+  );
   return (
     <>
-      <SafeAreaView style={{flex: 1}}>
+      <SafeAreaView style={{flex: 1, backgroundColor: '#ffffff'}}>
         <View
           style={{
             flex: 1,
@@ -221,8 +226,41 @@ const RegisterScreen = (props) => {
           }}>
           <Title />
           <View style={{alignItems: 'center', margin: 5}}>
-            <Input width={230} placeholder="Phone Number" />
-            <Input width={230} placeholder="Select School" />
+            <Input
+              width={windowWidth - 40}
+              placeholder="Phone Number"
+              keyboardType="phone-pad"
+            />
+            <View
+              style={{
+                borderColor: '#B1B1B1',
+                borderWidth: 1,
+                borderRadius: 8,
+                width: props.width,
+                height: 40,
+              }}>
+              <Picker
+                selectedValue={selectedValue}
+                style={{
+                  height: 50,
+                  width: windowWidth - 40,
+                  borderWidth: 1,
+                  borderRadius: 8,
+                  borderColor: '#B1B1B1',
+                }}
+                onValueChange={(itemValue, itemIndex) =>
+                  setSelectedValue(itemValue)
+                }>
+                <Picker.Item
+                  label="University of Lagos"
+                  value="University of Lagos"
+                />
+                <Picker.Item
+                  label="Federal University of Technology"
+                  value="js"
+                />
+              </Picker>
+            </View>
             <Text style={{fontSize: 13, color: 'grey'}}>
               By creating an account with us, you agree with our terms and
               conditions.
@@ -236,7 +274,7 @@ const RegisterScreen = (props) => {
 
             <TouchableOpacity
               style={{alignSelf: 'center', margin: 10}}
-              onPress={() => props.navigation.navigate('Home')}>
+              onPress={() => props.navigation.navigate('OTPScreen')}>
               <Text style={{color: '#4B0082'}}>Log In</Text>
             </TouchableOpacity>
           </View>
@@ -248,7 +286,7 @@ const RegisterScreen = (props) => {
 
 const OTPScreen = (props) => {
   return (
-    <SafeAreaView style={{flex: 1, padding: 20}}>
+    <SafeAreaView style={{flex: 1, padding: 20, backgroundColor: '#ffffff'}}>
       <View style={{flex: 1}} />
       <Text
         style={{fontWeight: 'bold', textAlign: 'center', paddingBottom: 40}}>
@@ -298,7 +336,7 @@ const OTPScreen = (props) => {
 
 const CreateProfile = (props) => {
   return (
-    <SafeAreaView style={{flex: 1, padding: 20}}>
+    <SafeAreaView style={{flex: 1, padding: 20, backgroundColor: '#ffffff'}}>
       <View style={{alignItems: 'center', padding: 40}}>
         <Text style={{fontSize: 25}}>Create Profile</Text>
       </View>
@@ -309,28 +347,32 @@ const CreateProfile = (props) => {
             height: 100,
             borderRadius: 50,
             backgroundColor: 'grey',
-            marginBottom: 40,
+            marginBottom: 0,
           }}
         />
         <View
           style={{
             position: 'relative',
-            left: 30,
-            top: -70,
+            left: 40,
+            top: -40,
             zIndex: 2,
             width: 35,
             height: 35,
             borderRadius: 25,
             backgroundColor: '#4B0082',
-            marginBottom: 40,
+            marginBottom: 0,
           }}
         />
       </View>
       <View style={{alignItems: 'center'}}>
-        <Input width={230} placeholder="Username" />
-        <Input width={230} placeholder="First Name" />
-        <Input width={230} placeholder="Last Name" />
-        <Input width={230} placeholder="Email(Optional)" />
+        <Input width={windowWidth - 40} placeholder="Username" />
+        <Input width={windowWidth - 40} placeholder="First Name" />
+        <Input width={windowWidth - 40} placeholder="Last Name" />
+        <Input
+          width={windowWidth - 40}
+          placeholder="Email(Optional)"
+          keyboardType="email-address"
+        />
         <CustomButton
           onPress={() => props.navigation.navigate('Home')}
           title="Submit"
@@ -342,7 +384,7 @@ const CreateProfile = (props) => {
 
 const Home = () => {
   return (
-    <SafeAreaView style={{flex: 1, padding: 20}}>
+    <SafeAreaView style={{flex: 1, padding: 5, backgroundColor: '#ffffff'}}>
       <View style={{alignItems: 'center', padding: 0}}>
         <Text
           style={{
@@ -355,7 +397,7 @@ const Home = () => {
         </Text>
       </View>
       <CategoryView />
-      <ScrollView>
+      <ScrollView showsVerticalScrollIndicator={false}>
         <CardView />
         <CardView />
         <CardView />
