@@ -10,7 +10,7 @@ const CustomButton = (props) => {
       onPress={props.onPress}
       style={{
         backgroundColor: '#4B0082',
-        width: windowWidth - 40,
+        width: windowWidth - 50,
         height: 48,
         borderRadius: 8,
       }}>

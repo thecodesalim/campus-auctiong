@@ -10,7 +10,7 @@ const Divider = (props) => {
       style={{
         marginBottom: 10,
         marginTop: props.marginTop,
-        width: windowWidth,
+        width: windowWidth - 50,
         height: 1,
         backgroundColor: 'lightgrey',
       }}
