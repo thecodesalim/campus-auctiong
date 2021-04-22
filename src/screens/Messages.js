@@ -8,10 +8,10 @@ import MessageList from '../components/MessageList';
 
 const windowWidth = Dimensions.get('window').width;
 
-const Messages = () => {
+const Messages = (props) => {
   // return <AppNavigator />;
   return (
-    <SafeAreaView style={{flex: 1, padding: 20, backgroundColor: '#ffffff'}}>
+    <SafeAreaView style={{flex: 1, padding: 10, backgroundColor: '#ffffff'}}>
       <View style={{flexDirection: 'row'}}>
         <Image
           style={{marginLeft: 7.5, marginRight: 15}}
@@ -19,10 +19,14 @@ const Messages = () => {
         />
         <Text style={{marginTop: 1, fontSize: 16}}>Messages</Text>
       </View>
-      <View style={{padding: 20}}>
+      <View style={{padding: 10}}>
         <Input width={windowWidth - 50} placeholder="Search user" />
 
-        <MessageList username="Burna Boy" message="Hello" />
+        <MessageList
+          username="Burna Boy"
+          message="Hello"
+          onPress={() => props.navigation.navigate('Chat')}
+        />
         <MessageList
           username="Naira Marley"
           message="I'm not interested anymore"

@@ -26,11 +26,13 @@ const SettingsScreen = (props) => {
           <SettingsItem
             icon={require('../assets/user_account.png')}
             item="Account"
+            onPress={() => props.navigation.navigate('Account')}
           />
         </Pressable>
         <SettingsItem
           icon={require('../assets/user_message.png')}
           item="Contact us"
+          onPress={() => props.navigation.navigate('ContactUsScreen')}
         />
 
         <SettingsItem

@@ -15,7 +15,7 @@ const windowWidth = Dimensions.get('window').width;
 
 const ContactUsScreen = () => {
   return (
-    <SafeAreaView style={{flex: 1, padding: 20, backgroundColor: '#ffffff'}}>
+    <SafeAreaView style={{flex: 1, padding: 10, backgroundColor: '#ffffff'}}>
       <View style={{flexDirection: 'row'}}>
         <Image
           style={{marginLeft: 7.5, marginRight: 15}}
@@ -23,7 +23,7 @@ const ContactUsScreen = () => {
         />
         <Text style={{marginTop: 1, fontSize: 16}}>Contact Us</Text>
       </View>
-      <View style={{padding: 25}}>
+      <View style={{padding: 15}}>
         <Text>Email</Text>
         <TextInput
           placeholder="Enter your email"

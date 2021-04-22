@@ -7,7 +7,7 @@ import Divider from '../components/Divider';
 const MessageList = (props) => {
   return (
     <>
-      <Pressable onPress={() => console.log('pressed')}>
+      <Pressable onPress={props.onPress}>
         <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
           <View style={{flexDirection: 'row', marginTop: 10}}>
             <View
