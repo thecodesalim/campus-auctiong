@@ -37,7 +37,7 @@ const OTPScreen = (props) => {
         </View>
         <View style={{alignSelf: 'center', paddingTop: 10}}>
           <CustomButton
-            onPress={() => props.navigation.navigate('Home')}
+            onPress={() => props.navigation.navigate('Main')}
             title="Verify"
           />
         </View>
