@@ -4,38 +4,34 @@ import {
   View,
   Text,
   SafeAreaView,
-  Image,
   ScrollView,
   Pressable,
+  Dimensions,
 } from 'react-native';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import CardView from '../components/CardView';
 import CategoryView from '../components/CategoryView';
 
+const windowWidth = Dimensions.get('window').width;
+
 const HomeScreen = (props) => {
   return (
     <SafeAreaView style={{flex: 1, padding: 5, backgroundColor: '#ffffff'}}>
-      <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-        <Image
-          style={{margin: 10}}
-          source={require('../assets/notifications.png')}
-        />
+      <View style={{flexDirection: 'row', justifyContent: 'space-around'}}>
+        <Ionicons name={'notifications-outline'} size={25} />
         <Text
           style={{
-            fontSize: 20,
+            fontSize: 21,
             color: '#4B0082',
             fontWeight: 'bold',
-            margin: 10,
           }}>
           Campus AuctionNG
         </Text>
 
-        <Image style={{margin: 10}} source={require('../assets/search.png')} />
+        <Ionicons name={'search-outline'} size={25} />
         <Pressable onPress={() => props.navigation.navigate('Profile')}>
-          <Image
-            style={{margin: 10}}
-            source={require('../assets/userhome.png')}
-          />
+          <Ionicons name={'person-outline'} size={25} />
         </Pressable>
       </View>
       <CategoryView />
@@ -44,6 +40,17 @@ const HomeScreen = (props) => {
         <CardView />
         <CardView />
       </ScrollView>
+      <Pressable
+        style={{
+          bottom: 0,
+          //alignSelf: 'flex-end',
+          //margin: 30,
+          marginLeft: windowWidth - 90,
+          position: 'absolute',
+        }}
+        onPress={() => props.navigation.navigate('AddItem')}>
+        <Ionicons name={'add-circle'} size={80} color="#4B0082" />
+      </Pressable>
     </SafeAreaView>
   );
 };

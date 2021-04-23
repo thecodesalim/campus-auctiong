@@ -2,6 +2,8 @@
 import React from 'react';
 import {View, Text, Dimensions, Image} from 'react-native';
 
+import Ionicons from 'react-native-vector-icons/Ionicons';
+
 const windowWidth = Dimensions.get('window').width;
 
 const CardView = () => {
@@ -19,21 +21,36 @@ const CardView = () => {
           }}>
           <View>
             <View style={{flexDirection: 'row'}}>
-              <Image
-                style={{
-                  margin: 10,
-                  width: 50,
-                  height: 50,
-                  // backgroundColor: 'orangered',
-                  borderRadius: 25,
-                }}
-                source={require('../assets/fela-kudi.png')}
-              />
-              <View style={{marginTop: 10}}>
-                <Text>Fela Kuti</Text>
-                <Text style={{fontSize: 12, color: '#707070'}}>
-                  University of Lagos, Lagos
-                </Text>
+              <View
+                style={{flexDirection: 'row', justifyContent: 'flex-start'}}>
+                <Image
+                  style={{
+                    margin: 10,
+                    width: 50,
+                    height: 50,
+                    // backgroundColor: 'orangered',
+                    borderRadius: 25,
+                  }}
+                  source={require('../assets/fela-kudi.png')}
+                />
+                <View style={{marginTop: 10}}>
+                  <Text>Fela Kuti</Text>
+                  <Text
+                    style={{
+                      fontSize: 12,
+                      color: '#707070',
+                      alignItems: 'flex-end',
+                    }}>
+                    University of Lagos, Lagos
+                  </Text>
+                </View>
+              </View>
+              <View style={{flexDirection: 'row', justifyContent: 'flex-end'}}>
+                <Ionicons
+                  style={{marginLeft: windowWidth - 265, marginTop: 10}}
+                  name={'ellipsis-vertical'}
+                  size={25}
+                />
               </View>
             </View>
             <View
@@ -64,23 +81,23 @@ const CardView = () => {
               marginTop: 10,
             }}>
             <View style={{flexDirection: 'row'}}>
-              <Image
+              <Ionicons
                 style={{margin: 15}}
-                source={require('../assets/messag1.png')}
+                name={'chatbubble-ellipses-outline'}
+                size={25}
               />
-              <Image
-                style={{margin: 15}}
-                source={require('../assets/call.png')}
-              />
+              <Ionicons style={{margin: 15}} name={'call-outline'} size={25} />
             </View>
             <View style={{flexDirection: 'row'}}>
-              <Image
+              <Ionicons
                 style={{margin: 15}}
-                source={require('../assets/info1.png')}
+                name={'information-circle-outline'}
+                size={30}
               />
-              <Image
+              <Ionicons
                 style={{margin: 15}}
-                source={require('../assets/save1.png')}
+                name={'bookmark-outline'}
+                size={25}
               />
             </View>
           </View>

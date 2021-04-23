@@ -1,13 +1,7 @@
 /* eslint-disable react-native/no-inline-styles */
 import React from 'react';
-import {
-  View,
-  Text,
-  SafeAreaView,
-  Image,
-  TextInput,
-  Dimensions,
-} from 'react-native';
+import {View, Text, SafeAreaView, TextInput, Dimensions} from 'react-native';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import CustomButton from '../components/CustomButton';
 
@@ -17,11 +11,12 @@ const ContactUsScreen = () => {
   return (
     <SafeAreaView style={{flex: 1, padding: 10, backgroundColor: '#ffffff'}}>
       <View style={{flexDirection: 'row'}}>
-        <Image
+        <Ionicons
           style={{marginLeft: 7.5, marginRight: 15}}
-          source={require('../assets/settings.png')}
+          name={'arrow-back'}
+          size={25}
         />
-        <Text style={{marginTop: 1, fontSize: 16}}>Contact Us</Text>
+        <Text style={{marginTop: 1, fontSize: 21}}>Contact Us</Text>
       </View>
       <View style={{padding: 15}}>
         <Text>Email</Text>

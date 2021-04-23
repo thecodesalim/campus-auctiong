@@ -9,6 +9,7 @@ const CustomButton = (props) => {
     <Pressable
       onPress={props.onPress}
       style={{
+        alignSelf: 'center',
         backgroundColor: '#4B0082',
         width: windowWidth - 50,
         height: 48,

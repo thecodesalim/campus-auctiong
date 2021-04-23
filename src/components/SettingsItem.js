@@ -1,13 +1,19 @@
 /* eslint-disable react-native/no-inline-styles */
 import React from 'react';
-import {View, Pressable, Text, Image} from 'react-native';
+import {View, Pressable, Text} from 'react-native';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 const SettingsItem = (props) => {
   return (
     <View style={{flexDirection: 'row', marginBottom: 10, marginTop: 10}}>
-      <Image style={{marginLeft: 10, marginRight: 25}} source={props.icon} />
+      <Ionicons
+        style={{marginLeft: 10, marginRight: 25}}
+        name={props.name}
+        size={25}
+        color={props.color}
+      />
       <Pressable onPress={props.onPress}>
-        <Text style={{marginTop: 0}}>{props.item}</Text>
+        <Text style={{marginTop: 6}}>{props.item}</Text>
       </Pressable>
     </View>
   );

@@ -18,7 +18,7 @@ const LogoutModal = (props) => {
             backgroundColor: 'white',
           }}>
           <Text style={{alignSelf: 'center', padding: 30}}>
-            Dear Fela, are you sure you want to logout
+            {props.details}
           </Text>
           <View style={{marginTop: 0}} />
           <View style={{flexDirection: 'row', justifyContent: 'space-around'}}>
@@ -29,13 +29,13 @@ const LogoutModal = (props) => {
               onPress={props.toggleModal}
               style={{
                 color: 'white',
-                backgroundColor: 'red',
+                backgroundColor: props.color,
                 width: windowWidth - 300,
                 height: 48,
                 borderRadius: 8,
               }}>
               <Text style={{textAlign: 'center', color: 'white', margin: 15}}>
-                Log out
+                {props.title}
               </Text>
             </Pressable>
           </View>

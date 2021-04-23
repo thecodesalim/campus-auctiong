@@ -1,6 +1,7 @@
 /* eslint-disable react-native/no-inline-styles */
 import React from 'react';
-import {View, Text, SafeAreaView, Image, Pressable} from 'react-native';
+import {View, Text, SafeAreaView, Pressable} from 'react-native';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import SettingsItem from '../components/SettingsItem';
 import LogoutModal from '../components/LogoutModal';
@@ -15,39 +16,35 @@ const SettingsScreen = (props) => {
     <SafeAreaView style={{flex: 1, padding: 5, backgroundColor: '#ffffff'}}>
       <View style={{padding: 5}}>
         <View style={{flexDirection: 'row'}}>
-          <Image
+          <Ionicons
             style={{marginLeft: 7.5, marginRight: 15}}
-            source={require('../assets/settings.png')}
+            name={'arrow-back'}
+            size={25}
           />
-          <Text style={{marginTop: 1, fontSize: 16}}>Settings</Text>
+          <Text style={{marginTop: 1, fontSize: 21}}>Settings</Text>
         </View>
         <View style={{marginBottom: 40}} />
         <Pressable onPress={() => props.navigation.navigate('Account')}>
           <SettingsItem
-            icon={require('../assets/user_account.png')}
+            name="person-circle-outline"
             item="Account"
             onPress={() => props.navigation.navigate('Account')}
           />
         </Pressable>
         <SettingsItem
-          icon={require('../assets/user_message.png')}
+          name="chatbox-outline"
           item="Contact us"
           onPress={() => props.navigation.navigate('ContactUsScreen')}
         />
 
-        <SettingsItem
-          icon={require('../assets/user_avatar.png')}
-          item="About us"
-        />
+        <SettingsItem name="person-circle-outline" item="About us" />
 
-        <SettingsItem
-          icon={require('../assets/user_info.png')}
-          item="App info"
-        />
+        <SettingsItem name="information-circle-outline" item="App info" />
 
         <SettingsItem
           style={{color: 'red'}}
-          icon={require('../assets/user_logout.png')}
+          name="log-out-outline"
+          color="red"
           item="Log out"
           onPress={() => toggleModal()}
         />
@@ -55,6 +52,9 @@ const SettingsScreen = (props) => {
         <LogoutModal
           isModalVisible={isModalVisible}
           toggleModal={toggleModal}
+          details="Dear Fela, are you sure you want to log out?"
+          title="Logout"
+          color="red"
         />
       </View>
     </SafeAreaView>

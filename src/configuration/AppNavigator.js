@@ -13,6 +13,9 @@ import SettingsScreen from '../screens/SettingsScreen';
 import ContactUsScreen from '../screens/ContactUsScreen';
 import Messages from '../screens/Messages';
 import Chat from '../screens/Chat';
+import AddItem from '../screens/AddItem';
+import Ads from '../screens/Ads';
+import Saved from '../screens/Saved';
 
 const Stack = createStackNavigator();
 
@@ -70,6 +73,11 @@ const AppNavigator = () => {
         component={ContactUsScreen}
         options={{headerShown: false}}
       />
+      <Stack.Screen
+        name="AddItem"
+        component={AddItem}
+        options={{headerShown: false}}
+      />
     </Stack.Navigator>
   );
 };
@@ -91,4 +99,24 @@ const MessageStack = () => {
   );
 };
 
-export {AppNavigator, StartUp, MessageStack};
+const AdsStack = () => {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen
+        name="Saved"
+        component={Saved}
+        options={{headerShown: false}}
+      />
+    </Stack.Navigator>
+  );
+};
+
+const SavedStack = () => {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen name="Ads" component={Ads} options={{headerShown: false}} />
+    </Stack.Navigator>
+  );
+};
+
+export {AppNavigator, StartUp, MessageStack, AdsStack, SavedStack};

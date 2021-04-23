@@ -1,6 +1,7 @@
 /* eslint-disable react-native/no-inline-styles */
 import React from 'react';
-import {View, Text, SafeAreaView, Image, Pressable} from 'react-native';
+import {View, Text, SafeAreaView, Pressable} from 'react-native';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import ProfileEntry from '../components/ProfileEntry';
 import Divider from '../components/Divider';
@@ -14,16 +15,14 @@ const ProfileScreen = (props) => {
           justifyContent: 'space-between',
         }}>
         <View style={{flexDirection: 'row'}}>
-          <Image
-            style={{marginLeft: 10, marginRight: 15}}
-            source={require('../assets/settings.png')}
-          />
-          <Text>Profile</Text>
+          <Ionicons name={'arrow-back'} size={25} />
+          <Text style={{fontSize: 21, marginLeft: 10}}>Profile</Text>
         </View>
         <Pressable onPress={() => props.navigation.navigate('Settings')}>
-          <Image
+          <Ionicons
             style={{marginRight: 10}}
-            source={require('../assets/settings.png')}
+            name={'settings-outline'}
+            size={25}
           />
         </Pressable>
       </View>

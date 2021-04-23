@@ -1,20 +1,14 @@
 /* eslint-disable react-native/no-inline-styles */
 import 'react-native-gesture-handler';
 import React from 'react';
-import {
-  View,
-  Text,
-  SafeAreaView,
-  Image,
-  Dimensions,
-  TextInput,
-} from 'react-native';
+import {View, Text, SafeAreaView, Dimensions, TextInput} from 'react-native';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 const windowWidth = Dimensions.get('window').width;
 
 const Chat = () => {
   return (
-    <SafeAreaView style={{flex: 1, padding: 10, backgroundColor: '#ffffff'}}>
+    <SafeAreaView style={{flex: 1, padding: 5, backgroundColor: '#ffffff'}}>
       <View
         style={{
           flex: 1,
@@ -24,10 +18,7 @@ const Chat = () => {
         <View>
           <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
             <View style={{flexDirection: 'row', justifyContent: 'flex-start'}}>
-              <Image
-                style={{marginLeft: 7.5, marginRight: 15, marginTop: 8}}
-                source={require('../assets/settings.png')}
-              />
+              <Ionicons name={'arrow-back'} size={30} />
               <View
                 style={{
                   width: 35,
@@ -40,21 +31,36 @@ const Chat = () => {
                 style={{
                   marginTop: 9,
                   marginLeft: 8,
-                  fontSize: 14,
+                  fontSize: 16,
                   fontWeight: 'bold',
                 }}>
                 Burna Boy
               </Text>
             </View>
-
-            <Image
+            <View
               style={{
-                marginLeft: 7.5,
-                marginRight: 15,
-                marginTop: 8,
-              }}
-              source={require('../assets/call.png')}
-            />
+                flexDirection: 'row',
+                justifyContent: 'flex-end',
+              }}>
+              <Ionicons
+                style={{
+                  marginLeft: 7.5,
+                  marginRight: 15,
+                  marginTop: 8,
+                }}
+                name={'call'}
+                size={25}
+              />
+              <Ionicons
+                style={{
+                  marginLeft: 7.5,
+                  marginRight: 15,
+                  marginTop: 8,
+                }}
+                name={'ellipsis-vertical'}
+                size={25}
+              />
+            </View>
           </View>
           <View style={{marginTop: 40, flexDirection: 'row'}}>
             <View
@@ -70,12 +76,17 @@ const Chat = () => {
             <View>
               <View
                 style={{
-                  width: windowWidth - 80,
-                  borderRadius: 15,
+                  width: windowWidth - 90,
+                  borderRadius: 10,
                   backgroundColor: 'lightgrey',
                   marginLeft: 10,
                 }}>
-                <Text style={{justifyContent: 'center', alignSelf: 'center'}}>
+                <Text
+                  style={{
+                    justifyContent: 'center',
+                    alignSelf: 'center',
+                    marginLeft: 5,
+                  }}>
                   blah blah blah blah blah blah blah blah blah blah blah blah
                   blah blah blah blah blah blah blah blah blah blah blah blah
                   blah blah blah blah blah blah blah blah bla
@@ -97,7 +108,7 @@ const Chat = () => {
           <View
             style={{
               marginLeft: 10,
-              marginTop: 20,
+              marginBottom: 10,
               flexDirection: 'row',
               width: windowWidth - 80,
               height: 35,
@@ -106,15 +117,23 @@ const Chat = () => {
               borderRadius: 20,
               borderColor: 'lightgrey',
             }}>
-            <Image
-              style={{marginTop: 8, marginLeft: 8}}
-              source={require('../assets/settings.png')}
+            <Ionicons
+              style={{marginTop: 3, marginLeft: 8}}
+              name={'image'}
+              size={25}
+              color="#4B0082"
             />
             <TextInput
               placeholder="Type message here"
-              style={{marginLeft: 8, color: 'black'}}
+              style={{marginLeft: 8, color: 'black', height: 35}}
             />
-            <Text style={{marginLeft: 180, marginTop: 8}}>Send</Text>
+
+            <Ionicons
+              style={{marginLeft: 170, marginTop: 5}}
+              name={'send'}
+              size={25}
+              color="#4B0082"
+            />
           </View>
         </View>
       </View>
