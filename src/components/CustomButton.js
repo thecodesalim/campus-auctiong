@@ -12,10 +12,16 @@ const CustomButton = (props) => {
         alignSelf: 'center',
         backgroundColor: '#4B0082',
         width: windowWidth - 50,
-        height: 48,
+        height: 42,
         borderRadius: 8,
       }}>
-      <Text style={{textAlign: 'center', color: 'white', margin: 15}}>
+      <Text
+        style={{
+          textAlign: 'center',
+          color: 'white',
+          marginTop: '3%',
+          fontSize: 16,
+        }}>
         {props.title}
       </Text>
     </Pressable>

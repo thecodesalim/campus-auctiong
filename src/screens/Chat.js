@@ -66,8 +66,8 @@ const Chat = () => {
             <View
               style={{
                 marginLeft: 10,
-                width: 50,
-                height: 50,
+                width: 35,
+                height: 35,
                 borderRadius: 50,
                 backgroundColor: 'orangered',
                 alignSelf: 'flex-end',

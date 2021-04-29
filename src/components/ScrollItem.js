@@ -9,7 +9,9 @@ const ScrollItem = (props) => {
         height: 40,
         borderRadius: 8,
         backgroundColor: '#F5F5F5',
-        margin: 22,
+        margin: 20,
+        marginLeft: 5,
+        marginRight: 5,
         flexDirection: 'row',
         justifyContent: 'space-between',
       }}>

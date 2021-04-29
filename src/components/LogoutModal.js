@@ -30,11 +30,17 @@ const LogoutModal = (props) => {
               style={{
                 color: 'white',
                 backgroundColor: props.color,
-                width: windowWidth - 300,
+                width: '35%',
                 height: 48,
                 borderRadius: 8,
               }}>
-              <Text style={{textAlign: 'center', color: 'white', margin: 15}}>
+              <Text
+                style={{
+                  textAlignVertical: 'center',
+                  textAlign: 'center',
+                  color: 'white',
+                  margin: 15,
+                }}>
                 {props.title}
               </Text>
             </Pressable>

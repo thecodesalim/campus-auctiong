@@ -18,7 +18,7 @@ const OTPScreen = (props) => {
         <View
           style={{
             flexDirection: 'row',
-            justifyContent: 'space-between',
+            justifyContent: 'space-around',
             padding: 10,
           }}>
           <Text style={{}}>SMS sent to +234xxxxxxxx</Text>
@@ -29,11 +29,11 @@ const OTPScreen = (props) => {
             flexDirection: 'row',
             alignSelf: 'center',
           }}>
-          <Input width={63} placeholder="" />
-          <Input width={63} placeholder="" />
-          <Input width={63} placeholder="" />
-          <Input width={63} placeholder="" />
-          <Input width={63} placeholder="" />
+          <Input width={'15.5%'} placeholder="" />
+          <Input width={'15.5%'} placeholder="" />
+          <Input width={'15.5%'} placeholder="" />
+          <Input width={'15.5%'} placeholder="" />
+          <Input width={'15.5%'} placeholder="" />
         </View>
         <View style={{alignSelf: 'center', paddingTop: 10}}>
           <CustomButton
@@ -44,7 +44,7 @@ const OTPScreen = (props) => {
         <View
           style={{
             flexDirection: 'row',
-            justifyContent: 'space-between',
+            justifyContent: 'space-around',
             padding: 20,
           }}>
           <Text style={{}}>Did not receive code?</Text>

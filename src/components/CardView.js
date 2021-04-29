@@ -9,12 +9,12 @@ const windowWidth = Dimensions.get('window').width;
 const CardView = () => {
   return (
     <>
-      <View style={{flex: 1, marginBottom: 10, paddingLeft: 5}}>
+      <View style={{flex: 1, marginBottom: '2.5%', alignSelf: 'center'}}>
         <View
           style={{
             flex: 1,
-            width: windowWidth - 20,
-            height: 670,
+            width: '90%',
+            height: 525,
             borderColor: '#B1B1B1',
             borderWidth: 1,
             borderRadius: 8,
@@ -46,33 +46,33 @@ const CardView = () => {
                 </View>
               </View>
               <View style={{flexDirection: 'row', justifyContent: 'flex-end'}}>
-                <Ionicons
+                {/* <Ionicons
                   style={{marginLeft: windowWidth - 265, marginTop: 10}}
                   name={'ellipsis-vertical'}
                   size={25}
-                />
+                /> */}
               </View>
             </View>
             <View
               style={{
                 flexDirection: 'row',
-                justifyContent: 'space-around',
+                justifyContent: 'space-between',
               }}>
-              <Text style={{fontSize: 13, color: '#333333'}}>
+              <Text style={{fontSize: 13, color: '#333333', marginLeft: 3}}>
                 Clean and beautiful Arabian dress close to you
               </Text>
-              <Text style={{fontWeight: 'bold'}}>N35,000</Text>
+              <Text style={{fontWeight: 'bold', marginRight: 3}}>N35,000</Text>
             </View>
           </View>
           <Image
             style={{
               marginTop: 5,
-              width: windowWidth - 22,
+              width: windowWidth - 50,
               height: 290,
-              borderRadius: 8,
+              borderRadius: 0,
               // backgroundColor: '#B1B1B1',
             }}
-            source={require('../assets/chair.jpg')}
+            source={require('../assets/3.jpg')}
           />
           <View
             style={{
@@ -101,18 +101,20 @@ const CardView = () => {
               />
             </View>
           </View>
-          <View style={{margin: 20, marginTop: 20}}>
-            <Text>
+          <View style={{margin: 5, marginTop: 0, marginLeft: 5}}>
+            <Text style={{fontSize: 12}}>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-              sunt in culpa qui officia deserunt mollit anim id est laborum.
+              enim ad minim veniam, quis nostrud
             </Text>
           </View>
-          <Text style={{alignSelf: 'flex-end', marginRight: 5, fontSize: 12}}>
+          <Text
+            style={{
+              alignSelf: 'flex-end',
+              marginRight: 5,
+              fontSize: 9,
+              color: 'grey',
+            }}>
             Jan 9, 2019
           </Text>
         </View>

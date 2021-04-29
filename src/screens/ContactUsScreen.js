@@ -36,6 +36,7 @@ const ContactUsScreen = () => {
           placeholder="Do you have any suggestions or complaints? Kindly type it here"
           multiline={true}
           style={{
+            textAlignVertical: 'top',
             marginTop: 5,
             borderColor: '#B1B1B1',
             borderWidth: 1,
@@ -46,6 +47,29 @@ const ContactUsScreen = () => {
           }}
         />
         <CustomButton title="Send" />
+      </View>
+      <View
+        style={{
+          flexDirection: 'row',
+          position: 'absolute',
+          bottom: 40,
+          alignSelf: 'center',
+        }}>
+        <Ionicons
+          style={{marginLeft: 7.5, marginRight: 15}}
+          name={'logo-twitter'}
+          size={40}
+        />
+        <Ionicons
+          style={{marginLeft: 7.5, marginRight: 15}}
+          name={'logo-facebook'}
+          size={40}
+        />
+        <Ionicons
+          style={{marginLeft: 7.5, marginRight: 15}}
+          name={'logo-instagram'}
+          size={40}
+        />
       </View>
     </SafeAreaView>
   );

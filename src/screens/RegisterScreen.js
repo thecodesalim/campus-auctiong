@@ -58,7 +58,7 @@ const RegisterScreen = (props) => {
             <TouchableOpacity
               style={{alignSelf: 'center', margin: 10}}
               onPress={() => props.navigation.navigate('OTPScreen')}>
-              <Text style={{color: '#4B0082'}}>Log In</Text>
+              <Text style={{color: '#4B0082', fontSize: 16}}>Log In</Text>
             </TouchableOpacity>
           </View>
         </View>

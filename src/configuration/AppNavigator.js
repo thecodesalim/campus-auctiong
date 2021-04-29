@@ -1,6 +1,9 @@
 import 'react-native-gesture-handler';
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import {NavigationContainer} from '@react-navigation/native';
 
 import CreateProfile from '../screens/CreateProfile';
 import HomeScreen from '../screens/HomeScreen';
@@ -18,6 +21,7 @@ import Ads from '../screens/Ads';
 import Saved from '../screens/Saved';
 
 const Stack = createStackNavigator();
+const Tab = createBottomTabNavigator();
 
 const StartUp = () => {
   return (
@@ -45,78 +49,93 @@ const StartUp = () => {
     </Stack.Navigator>
   );
 };
-const AppNavigator = () => {
+
+function MyTabs() {
   return (
-    <Stack.Navigator>
-      <Stack.Screen
-        name="Home"
-        component={HomeScreen}
-        options={{headerShown: false}}
-      />
-      <Stack.Screen
-        name="Account"
-        component={AccountScreen}
-        options={{headerShown: false}}
-      />
-      <Stack.Screen
-        name="Profile"
-        component={ProfileScreen}
-        options={{headerShown: false}}
-      />
-      <Stack.Screen
-        name="Settings"
-        component={SettingsScreen}
-        options={{headerShown: false}}
-      />
-      <Stack.Screen
-        name="ContactUsScreen"
-        component={ContactUsScreen}
-        options={{headerShown: false}}
-      />
-      <Stack.Screen
-        name="AddItem"
-        component={AddItem}
-        options={{headerShown: false}}
-      />
-    </Stack.Navigator>
+    <Tab.Navigator
+      screenOptions={({route}) => ({
+        tabBarIcon: ({focused, color, size}) => {
+          let iconName;
+
+          if (route.name === 'Home') {
+            iconName = focused ? 'home' : 'home-outline';
+          } else if (route.name === 'Messages') {
+            iconName = focused ? 'chatbox' : 'chatbox-outline';
+          } else if (route.name === 'Saved') {
+            iconName = focused ? 'save' : 'save-outline';
+          } else if (route.name === 'Ads') {
+            iconName = focused ? 'images' : 'images-outline';
+          }
+
+          return <Ionicons name={iconName} size={size} color={'#4B0082'} />;
+        },
+      })}
+      tabBarOptions={{
+        style: {backgroundColor: '#ffff'},
+        showLabel: false,
+        showIcon: true,
+      }}>
+      <Tab.Screen name="Home" component={HomeScreen} />
+      <Tab.Screen name="Ads" component={Ads} />
+      <Tab.Screen name="Messages" component={Messages} />
+      <Tab.Screen name="Saved" component={Saved} />
+    </Tab.Navigator>
+  );
+}
+
+const Main = () => {
+  return (
+    // <AddItem />
+    <NavigationContainer>
+      <Stack.Navigator name="StartUp">
+        <Stack.Screen
+          name="StartUp"
+          component={StartUp}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="Main"
+          component={MyTabs}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="Chat"
+          component={Chat}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="Home"
+          component={HomeScreen}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="Account"
+          component={AccountScreen}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="Profile"
+          component={ProfileScreen}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="Settings"
+          component={SettingsScreen}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="ContactUsScreen"
+          component={ContactUsScreen}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="AddItem"
+          component={AddItem}
+          options={{headerShown: false}}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 };
 
-const MessageStack = () => {
-  return (
-    <Stack.Navigator>
-      <Stack.Screen
-        name="Messages"
-        component={Messages}
-        options={{headerShown: false}}
-      />
-      <Stack.Screen
-        name="Chat"
-        component={Chat}
-        options={{headerShown: false}}
-      />
-    </Stack.Navigator>
-  );
-};
-
-const AdsStack = () => {
-  return (
-    <Stack.Navigator>
-      <Stack.Screen
-        name="Saved"
-        component={Saved}
-        options={{headerShown: false}}
-      />
-    </Stack.Navigator>
-  );
-};
-
-const SavedStack = () => {
-  return (
-    <Stack.Navigator>
-      <Stack.Screen name="Ads" component={Ads} options={{headerShown: false}} />
-    </Stack.Navigator>
-  );
-};
-
-export {AppNavigator, StartUp, MessageStack, AdsStack, SavedStack};
+export {Main};

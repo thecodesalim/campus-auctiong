@@ -12,17 +12,23 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import CardView from '../components/CardView';
 import CategoryView from '../components/CategoryView';
+import AddItem from '../screens/AddItem';
 
 const windowWidth = Dimensions.get('window').width;
 
 const HomeScreen = (props) => {
+  const [isModalVisible, setModalVisible] = React.useState(false);
+
+  const toggleModal = () => {
+    setModalVisible(!isModalVisible);
+  };
   return (
     <SafeAreaView style={{flex: 1, padding: 5, backgroundColor: '#ffffff'}}>
       <View style={{flexDirection: 'row', justifyContent: 'space-around'}}>
         <Ionicons name={'notifications-outline'} size={25} />
         <Text
           style={{
-            fontSize: 21,
+            fontSize: 16,
             color: '#4B0082',
             fontWeight: 'bold',
           }}>
@@ -45,12 +51,13 @@ const HomeScreen = (props) => {
           bottom: 0,
           //alignSelf: 'flex-end',
           //margin: 30,
-          marginLeft: windowWidth - 90,
+          marginLeft: '81%',
           position: 'absolute',
         }}
-        onPress={() => props.navigation.navigate('AddItem')}>
-        <Ionicons name={'add-circle'} size={80} color="#4B0082" />
+        onPress={() => toggleModal()}>
+        <Ionicons name={'add-circle'} size={65} color="#4B0082" />
       </Pressable>
+      <AddItem isModalVisible={isModalVisible} />
     </SafeAreaView>
   );
 };
