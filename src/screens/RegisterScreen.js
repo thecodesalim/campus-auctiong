@@ -51,7 +51,9 @@ const RegisterScreen = (props) => {
           </View>
           <View>
             <CustomButton
-              onPress={() => props.navigation.navigate('OTPScreen')}
+              onPress={() =>
+                props.navigation.navigate('OTPScreen', {button: 'create'})
+              }
               title="Create Account"
             />
 

@@ -47,7 +47,7 @@ const CreateProfile = (props) => {
           keyboardType="email-address"
         />
         <CustomButton
-          onPress={() => props.navigation.navigate('Home')}
+          onPress={() => props.navigation.navigate('Main')}
           title="Submit"
         />
       </View>

@@ -6,7 +6,7 @@ import {
   Text,
   SafeAreaView,
   Image,
-  Dimensions,
+  Pressable,
   TextInput,
   ScrollView,
 } from 'react-native';
@@ -16,8 +16,7 @@ import CustomButton from '../components/CustomButton';
 import LogoutModal from '../components/LogoutModal';
 import {Picker} from '@react-native-picker/picker';
 import Modal from 'react-native-modal';
-
-const windowWidth = Dimensions.get('window').width;
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 const AddItem = (props) => {
   const [isModalVisible, setModalVisible] = React.useState(false);
@@ -26,14 +25,21 @@ const AddItem = (props) => {
     setModalVisible(!isModalVisible);
   };
   return (
-    <Modal isVisible={props.isModalVisible}>
-      <SafeAreaView style={{flex: 1, padding: 10, backgroundColor: '#ffffff'}}>
+    <Modal
+      style={{margin: 0}}
+      coverScreen={true}
+      isVisible={props.isModalVisible}>
+      <SafeAreaView style={{flex: 1, margin: 0, backgroundColor: '#ffffff'}}>
         <View style={{flexDirection: 'row'}}>
-          <Text style={{color: '#4B0082', marginLeft: 5, marginBottom: 10}}>
-            Cancel
-          </Text>
+          <Pressable onPress={props.onPress}>
+            <Ionicons
+              style={{marginLeft: 5, marginBottom: 10}}
+              name="close-outline"
+              size={25}
+            />
+          </Pressable>
         </View>
-        <ScrollView showsVerticalScrollIndicator={false} style={{margin: 5}}>
+        <ScrollView showsVerticalScrollIndicator={false} style={{margin: 20}}>
           <Text style={{fontSize: 16}}>Category</Text>
           <Picker>
             <Picker.Item label="Electronics" value="Electronices" />
@@ -52,12 +58,12 @@ const AddItem = (props) => {
           <TextInput
             multiline={true}
             style={{
+              paddingLeft: 10,
               textAlignVertical: 'top',
-              marginTop: 5,
+              margin: 5,
               borderColor: '#B1B1B1',
               borderWidth: 1,
               borderRadius: 8,
-              width: windowWidth - 22,
               height: 100,
               marginBottom: 20,
             }}

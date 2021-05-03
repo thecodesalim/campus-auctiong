@@ -13,7 +13,7 @@ const SettingsItem = (props) => {
         color={props.color}
       />
       <Pressable onPress={props.onPress}>
-        <Text style={{marginTop: 6}}>{props.item}</Text>
+        <Text style={{marginTop: 5}}>{props.item}</Text>
       </Pressable>
     </View>
   );

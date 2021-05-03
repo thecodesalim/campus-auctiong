@@ -15,9 +15,9 @@ const Ads = () => {
         Ads
       </Text>
       <ScrollView showsVerticalScrollIndicator={false}>
-        <CardView />
-        <CardView />
-        <CardView />
+        <CardView option={'more'} views={true} />
+        <CardView option={'more'} views={true} />
+        <CardView option={'more'} views={true} />
       </ScrollView>
     </SafeAreaView>
   );

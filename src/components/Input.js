@@ -6,6 +6,8 @@ const Input = (props) => {
   return (
     <TextInput
       style={{
+        paddingLeft: 10,
+        textAlignVertical: 'top',
         margin: 5,
         borderColor: '#B1B1B1',
         borderWidth: 1,

@@ -15,9 +15,9 @@ const Ads = () => {
         Saved
       </Text>
       <ScrollView showsVerticalScrollIndicator={false}>
-        <CardView />
-        <CardView />
-        <CardView />
+        <CardView option={'remove'} />
+        <CardView option={'remove'} />
+        <CardView option={'remove'} />
       </ScrollView>
     </SafeAreaView>
   );

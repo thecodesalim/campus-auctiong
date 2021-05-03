@@ -67,7 +67,7 @@ function MyTabs() {
             iconName = focused ? 'images' : 'images-outline';
           }
 
-          return <Ionicons name={iconName} size={size} color={'#4B0082'} />;
+          return <Ionicons name={iconName} size={size} color={'black'} />;
         },
       })}
       tabBarOptions={{

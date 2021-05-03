@@ -4,9 +4,11 @@ import React from 'react';
 import {View, Text, SafeAreaView, Dimensions, TextInput} from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
+import BackButton from '../components/BackButton';
+
 const windowWidth = Dimensions.get('window').width;
 
-const Chat = () => {
+const Chat = (props) => {
   return (
     <SafeAreaView style={{flex: 1, padding: 5, backgroundColor: '#ffffff'}}>
       <View
@@ -18,7 +20,7 @@ const Chat = () => {
         <View>
           <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
             <View style={{flexDirection: 'row', justifyContent: 'flex-start'}}>
-              <Ionicons name={'arrow-back'} size={30} />
+              <BackButton onPress={() => props.navigation.goBack()} />
               <View
                 style={{
                   width: 35,
@@ -29,8 +31,8 @@ const Chat = () => {
               />
               <Text
                 style={{
-                  marginTop: 9,
-                  marginLeft: 8,
+                  marginTop: 6,
+                  marginLeft: 10,
                   fontSize: 16,
                   fontWeight: 'bold',
                 }}>
@@ -86,6 +88,7 @@ const Chat = () => {
                     justifyContent: 'center',
                     alignSelf: 'center',
                     marginLeft: 5,
+                    color: '#303030',
                   }}>
                   blah blah blah blah blah blah blah blah blah blah blah blah
                   blah blah blah blah blah blah blah blah blah blah blah blah
@@ -105,35 +108,38 @@ const Chat = () => {
           </View>
         </View>
         <View>
-          <View
-            style={{
-              marginLeft: 10,
-              marginBottom: 10,
-              flexDirection: 'row',
-              width: windowWidth - 80,
-              height: 35,
-              borderWidth: 1,
-              backgroundColor: 'lightgrey',
-              borderRadius: 20,
-              borderColor: 'lightgrey',
-            }}>
-            <Ionicons
-              style={{marginTop: 3, marginLeft: 8}}
-              name={'image'}
-              size={25}
-              color="#4B0082"
-            />
-            <TextInput
-              placeholder="Type message here"
-              style={{marginLeft: 8, color: 'black', height: 35}}
-            />
-
-            <Ionicons
-              style={{marginLeft: 170, marginTop: 5}}
-              name={'send'}
-              size={25}
-              color="#4B0082"
-            />
+          <View style={{flexDirection: 'row', justifyContent: 'space-around'}}>
+            <View
+              style={{
+                marginLeft: 10,
+                marginBottom: 10,
+                flexDirection: 'row',
+                width: windowWidth - 80,
+                height: 35,
+                borderWidth: 1,
+                backgroundColor: 'lightgrey',
+                borderRadius: 20,
+                borderColor: 'lightgrey',
+              }}>
+              <Ionicons
+                style={{marginTop: 3, marginLeft: 8}}
+                name={'image'}
+                size={25}
+                color="#4B0082"
+              />
+              <TextInput
+                placeholder="Type message here"
+                style={{marginLeft: 8, color: 'black', height: 35}}
+              />
+            </View>
+            <View>
+              <Ionicons
+                style={{marginLeft: 0, marginTop: 5}}
+                name={'send'}
+                size={25}
+                color="#4B0082"
+              />
+            </View>
           </View>
         </View>
       </View>

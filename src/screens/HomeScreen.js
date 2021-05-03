@@ -1,20 +1,11 @@
 /* eslint-disable react-native/no-inline-styles */
 import React from 'react';
-import {
-  View,
-  Text,
-  SafeAreaView,
-  ScrollView,
-  Pressable,
-  Dimensions,
-} from 'react-native';
+import {View, Text, SafeAreaView, ScrollView, Pressable} from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import CardView from '../components/CardView';
 import CategoryView from '../components/CategoryView';
 import AddItem from '../screens/AddItem';
-
-const windowWidth = Dimensions.get('window').width;
 
 const HomeScreen = (props) => {
   const [isModalVisible, setModalVisible] = React.useState(false);
@@ -57,7 +48,7 @@ const HomeScreen = (props) => {
         onPress={() => toggleModal()}>
         <Ionicons name={'add-circle'} size={65} color="#4B0082" />
       </Pressable>
-      <AddItem isModalVisible={isModalVisible} />
+      <AddItem isModalVisible={isModalVisible} onPress={() => toggleModal()} />
     </SafeAreaView>
   );
 };

@@ -1,9 +1,11 @@
 /* eslint-disable react-native/no-inline-styles */
 import React from 'react';
-import {View, Text, SafeAreaView} from 'react-native';
+import {View, Text, SafeAreaView, Dimensions} from 'react-native';
 
 import Input from '../components/Input';
 import CustomButton from '../components/CustomButton';
+
+const windowWidth = Dimensions.get('window').width;
 
 const OTPScreen = (props) => {
   return (
@@ -29,15 +31,19 @@ const OTPScreen = (props) => {
             flexDirection: 'row',
             alignSelf: 'center',
           }}>
-          <Input width={'15.5%'} placeholder="" />
-          <Input width={'15.5%'} placeholder="" />
-          <Input width={'15.5%'} placeholder="" />
-          <Input width={'15.5%'} placeholder="" />
-          <Input width={'15.5%'} placeholder="" />
+          <Input width={windowWidth / 5 - 20} placeholder="" />
+          <Input width={windowWidth / 5 - 20} placeholder="" />
+          <Input width={windowWidth / 5 - 20} placeholder="" />
+          <Input width={windowWidth / 5 - 20} placeholder="" />
+          <Input width={windowWidth / 5 - 20} placeholder="" />
         </View>
         <View style={{alignSelf: 'center', paddingTop: 10}}>
           <CustomButton
-            onPress={() => props.navigation.navigate('Main')}
+            onPress={() =>
+              props.route.params?.button === 'create'
+                ? props.navigation.navigate('CreateProfile')
+                : props.navigation.navigate('Main')
+            }
             title="Verify"
           />
         </View>

@@ -4,19 +4,16 @@ import {View, Text, SafeAreaView, TextInput, Dimensions} from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import CustomButton from '../components/CustomButton';
+import BackButton from '../components/BackButton';
 
 const windowWidth = Dimensions.get('window').width;
 
-const ContactUsScreen = () => {
+const ContactUsScreen = (props) => {
   return (
     <SafeAreaView style={{flex: 1, padding: 10, backgroundColor: '#ffffff'}}>
       <View style={{flexDirection: 'row'}}>
-        <Ionicons
-          style={{marginLeft: 7.5, marginRight: 15}}
-          name={'arrow-back'}
-          size={25}
-        />
-        <Text style={{marginTop: 1, fontSize: 21}}>Contact Us</Text>
+        <BackButton onPress={() => props.navigation.goBack()} />
+        <Text style={{marginTop: 4, fontSize: 16}}>Contact Us</Text>
       </View>
       <View style={{padding: 15}}>
         <Text>Email</Text>

@@ -5,6 +5,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import SettingsItem from '../components/SettingsItem';
 import LogoutModal from '../components/LogoutModal';
+import BackButton from '../components/BackButton';
 
 const SettingsScreen = (props) => {
   const [isModalVisible, setModalVisible] = React.useState(false);
@@ -16,12 +17,10 @@ const SettingsScreen = (props) => {
     <SafeAreaView style={{flex: 1, padding: 5, backgroundColor: '#ffffff'}}>
       <View style={{padding: 5}}>
         <View style={{flexDirection: 'row'}}>
-          <Ionicons
-            style={{marginLeft: 7.5, marginRight: 15}}
-            name={'arrow-back'}
-            size={25}
-          />
-          <Text style={{marginTop: 1, fontSize: 21}}>Settings</Text>
+          <BackButton onPress={() => props.navigation.goBack()} />
+          <Text style={{fontSize: 16, marginLeft: 10, marginTop: 4}}>
+            Settings
+          </Text>
         </View>
         <View style={{marginBottom: 40}} />
         <Pressable onPress={() => props.navigation.navigate('Account')}>
